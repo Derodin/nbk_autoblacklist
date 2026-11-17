@@ -1,0 +1,18 @@
+## Interface: 16001
+## Title: NerzorsBlacklistKeeper - AutoBlacklist
+## Notes: Detects chat spam and optionally hides blocked senders.
+## Notes-deDE: Erkennt Chatspam und blendet gesperrte Absender auf Wunsch aus.
+## Author: DerOdin
+## Version: 0.1.0-dev
+## Dependencies: NerzorsBlacklistKeeper
+## X-Curse-Project-ID: 1811090
+## SavedVariables: NerzorsBlacklistKeeperAutoBlacklistDB
+## Category: Social
+
+Identity.lua
+ChatText.lua
+LanguageRules.lua
+SpamRules.lua
+Repetition.lua
+SenderRules.lua
+AutoBlacklist.lua

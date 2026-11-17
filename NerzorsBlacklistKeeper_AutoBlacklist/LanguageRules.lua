@@ -1,0 +1,92 @@
+local _, addon = ...
+
+local levelRange = "%d+%s*%-%s*%d+"
+
+addon.DetectionLanguages = {
+    {
+        key = "enUS", label = "English (enUS / enGB)", enabledByDefault = true,
+        offers = { "wts", "selling", "offering", "we offer" },
+        requests = { "wtb", "buying", "looking for", "lf" },
+        leveling = {
+            "power%s*levell?ing", "levell?ing service", "level%s*boost", "level%-boost",
+            "levell?ing%s+" .. levelRange, "lvling%s+" .. levelRange,
+            "level%s+" .. levelRange, "lvl%s+" .. levelRange, "afk%s+" .. levelRange,
+        },
+        boosting = { "boosts?", "boosting", "carry", "carries", "raid runs?", "raid clears?", "mythic%+%s*%d+" },
+        terms = { "%d[%d.,]*%s*gold", "gold only", "w/me", "whisper me", "whisper for", "pm me", "pst for" },
+        payment = { "pay in raid" },
+    },
+    {
+        key = "deDE", label = "Deutsch (deDE)", enabledByDefault = true,
+        offers = { "biete", "bieten", "verkaufe", "verkaufen" },
+        requests = { "suche", "suchen", "kaufe" },
+        leveling = { "level%-%s*service", "level%s*service", "level%s*boost", "level%-boost", "leveln", "levelhilfe" },
+        boosting = { "raid%s*boost", "raid%-%s*boost", "raid%-%s*carry", "mythisch%+%s*%d+" },
+        terms = { "%d[%d.,]*%s*gold", "nur gold", "pn an", "für preise", "preise per pn" },
+        payment = { "zahlung im raid" },
+    },
+    {
+        key = "ruRU", label = "Русский (ruRU)",
+        offers = { "продам", "продаю", "продаём", "предлагаю", "предлагаем" },
+        requests = { "куплю", "ищу", "нужен", "нужна" },
+        leveling = { "прокачка", "прокачку", "прокачки", "ускоренная прокачка" },
+        boosting = { "буст", "буста", "бустинг", "паровоз", "м%+%s*%d+", "рейд%s*буст" },
+        terms = { "%d[%d.,]*%s*к", "%d[%d.,]*%s*золота", "в лс", "в личку", "пишите в лс" },
+    },
+    {
+        key = "zhCN", label = "简体中文 (zhCN)", phrases = true,
+        offers = { "出售", "接单", "承接", "有偿", "销售" },
+        requests = { "求带", "求购", "找人", "想买", "收购" },
+        leveling = { "代练", "代升级", "升级服务", "代练升级" },
+        boosting = { "大秘境", "带打", "团本代打", "团本带打", "史诗钥石" },
+        terms = { "%d+%s*万金", "%d+%s*金币", "私聊", "密我", "私信" },
+    },
+    {
+        key = "zhTW", label = "繁體中文 (zhTW)", phrases = true,
+        offers = { "出售", "販售", "接單", "承接", "有償" },
+        requests = { "求帶", "求購", "找人", "想買", "收購" },
+        leveling = { "代練", "代升級", "練等服務", "代升等" },
+        boosting = { "大秘境", "帶打", "團本代打", "團本帶打", "傳奇鑰石" },
+        terms = { "%d+%s*萬金", "%d+%s*金幣", "私訊", "密我", "私聊" },
+    },
+    {
+        key = "koKR", label = "한국어 (koKR)", phrases = true,
+        offers = { "판매", "팝니다", "유료" },
+        requests = { "구매", "삽니다", "구해요", "구합니다" },
+        leveling = { "레벨업%s*대행", "육성%s*대행", "레벨업%s*버스", "레벨링" },
+        boosting = { "쐐기%s*버스", "레이드%s*버스", "쐐기돌%s*버스" },
+        terms = { "%d+%s*만%s*골", "%d+%s*골드", "귓말", "귓주세요", "귓속말" },
+    },
+    {
+        key = "frFR", label = "Français (frFR)",
+        offers = { "vends", "vendons", "vente de", "propose", "proposons" },
+        requests = { "cherche", "recherche", "achète", "achetons" },
+        leveling = { "montée de niveau", "boost de niveau", "service de leveling", "montée en niveau" },
+        boosting = { "boost", "carry", "rush donjon", "rush raid", "boost raid" },
+        terms = { "%d[%d.,]*%s*po", "prix en mp", "mp moi", "chuchotez" },
+    },
+    {
+        key = "esES", label = "Español (esES / esMX)",
+        offers = { "vendo", "vendemos", "ofrezco", "ofrecemos" },
+        requests = { "busco", "buscamos", "compro", "necesito" },
+        leveling = { "leveo", "leveleo", "subida de nivel", "subir de nivel", "subo niveles" },
+        boosting = { "acarreo", "carreo", "carrileos?", "carry", "boost", "míticas%+" },
+        terms = { "%d[%d.,]*%s*oro", "susurra", "mándame un mp", "precio por susurro", "manda dm" },
+    },
+    {
+        key = "ptBR", label = "Português (ptBR)",
+        offers = { "vendo", "vendemos", "ofereço", "oferecemos", "à venda" },
+        requests = { "compro", "procuro", "procurando", "busco", "preciso" },
+        leveling = { "up de nível", "serviço de up", "upar", "subida de nível" },
+        boosting = { "rush de masmorra", "rush de raid", "carry", "boost" },
+        terms = { "%d[%d.,]*%s*ouro", "chama no pv", "sussurre", "preço no pv", "só ouro" },
+    },
+    {
+        key = "itIT", label = "Italiano (itIT)",
+        offers = { "vendo", "vendiamo", "offro", "offriamo", "vendesi" },
+        requests = { "cerco", "cerchiamo", "compro", "acquisto" },
+        leveling = { "livellamento", "servizio di livellamento", "salire di livello", "servizio livelli" },
+        boosting = { "boost", "carry", "boost mitiche", "boost incursione" },
+        terms = { "%d[%d.,]*%s*oro", "sussurra", "scrivimi", "prezzo in privato", "solo oro" },
+    },
+}
